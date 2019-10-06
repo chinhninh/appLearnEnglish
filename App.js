@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Text, View } from 'react-native'
 import {createStore} from 'redux'
 import {Provider} from 'react-redux'
 import Main from './components/Main'
@@ -22,7 +21,7 @@ const defaultState ={
     {id: 14,en: 'school', vn: 'truong hoc', memorized: true, isShow: false},
   ],
   filterStatus: 'SHOW_ALL',
-  isAdding: true
+  isAdding: false
 }
 
 const reducer = (state = defaultState, action) => {
@@ -58,6 +57,10 @@ const reducer = (state = defaultState, action) => {
           isShow: true
         }].concat(state.arrWords)
       }
+      case 'DELETE':
+        return {...state, arrWords: state.arrWords.filter(e=>{
+          if (e.id !== action.id) return e;
+        })}
       
     default:
       break;

@@ -17,6 +17,13 @@ class Word extends Component {
         })
     }
 
+    buttonDelete() {
+        this.props.dispatch({
+            type: 'DELETE',
+            id: this.props.myWord.id
+        })
+    }
+
     render() {
         const {container,button,textButton} = styles
         const {en,vn,memorized,isShow} = this.props.myWord
@@ -39,6 +46,12 @@ class Word extends Component {
                         onPress = {this.buttonIsSHow.bind(this)}
                     >
                         <Text>Show</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        style={textButton}
+                        onPress = {this.buttonDelete.bind(this)}
+                    >
+                        <Text>Delete</Text>
                     </TouchableOpacity>
                 </View>
             </View>

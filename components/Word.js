@@ -49,7 +49,7 @@ class Word extends Component {
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={textButton}
-                        onPress = {this.buttonDelete.bind(this)}
+                        onPress = {()=>this.buttonDelete(id)}
                     >
                         <Text>Delete</Text>
                     </TouchableOpacity>

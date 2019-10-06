@@ -23,7 +23,7 @@ class Main extends Component {
                 <FlatList
                     data = {this.getWordList()}
                     renderItem = {({item}) => <Word myWord = {item}/>}
-                    // keyExtractor = {this.props.myWords.id}
+                    keyExtractor = {this.props.myWords.id}
                 />
                 <Filter/>
             </View>

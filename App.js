@@ -45,6 +45,8 @@ const reducer = (state = defaultState, action) => {
       return {...e, isShow: !e.isShow}
       })
     }
+    case 'IS_ADDING': 
+      return {...state, isAdding: !state.isAdding}
       
     default:
       break;

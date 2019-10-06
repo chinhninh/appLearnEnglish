@@ -21,11 +21,22 @@ const defaultState ={
     {id: 13,en: 'arrange', vn: 'sap xep', memorized: true, isShow: false},
     {id: 14,en: 'school', vn: 'truong hoc', memorized: true, isShow: false},
   ],
-  filterStatus: false,
+  filterStatus: 'SHOW_ALL',
   isAdding: true
 }
 
 const reducer = (state = defaultState, action) => {
+  switch (action.type) {
+    case 'FILTER_SHOW_ALL':
+      return {...state, filterStatus: 'SHOW_ALL'}
+    case 'FILTER_MEMORIZED':
+      return {...state, filterStatus: 'MEMORIZED'}
+    case 'FILTER_NEED_PRACTICE':
+      return {...state, filterStatus: 'NEED_PRACTICE'}
+  
+    default:
+      break;
+  }
   return state;
 }
 
